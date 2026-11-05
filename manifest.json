@@ -1,17 +1,27 @@
 {
   "manifest_version": 3,
   "name": "Tab Grouper",
-  "version": "1.1",
-  "description": "Groups tabs from the same website next to each other.",
+  "version": "1.2",
+  "description": "Groups tabs from the same website next to each other. One click or Alt+Shift+G, optional auto-organize. No data collected.",
   "permissions": ["tabs", "storage", "menus"],
   "icons": { "48": "icon.svg", "96": "icon.svg" },
   "background": { "scripts": ["background.js"] },
-  "action": { "default_title": "Organize tabs (Alt+Shift+G)", "default_icon": "icon.svg" },
+  "action": {
+    "default_title": "Tab Grouper (Alt+Shift+G)",
+    "default_icon": "icon.svg",
+    "default_popup": "popup.html"
+  },
   "commands": {
     "organize": {
       "suggested_key": { "default": "Alt+Shift+G" },
       "description": "Organize tabs by website"
     }
   },
-  "browser_specific_settings": { "gecko": { "id": "tab-grouper@example.local" } }
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tab-grouper@example.local",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": { "required": ["none"] }
+    }
+  }
 }
